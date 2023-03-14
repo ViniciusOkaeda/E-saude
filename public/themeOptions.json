@@ -1,0 +1,45 @@
+{
+    "paletteOptions": [
+        {
+            "primaryColor": [
+                {
+                    "color": "#000000"
+                },
+                {
+                    "color": "#000000"
+                },
+                {
+                    "color": "#000000"
+                }
+            ],
+
+            "themeColor": [
+                {
+                    "type": "light",
+                    "color": "#ffffff"
+                },
+                {
+                    "type": "dark",
+                    "color": "#000000"
+                }
+            ],
+
+            "menuColor": [
+                {
+                    "color": "#2e6fac"
+                },
+                {
+                    "color": "#ffcc00"
+                },
+                {
+                    "color": "#963d94"
+                },
+                {
+                    "color": "#e11d25"
+                }
+            ]
+
+
+        }
+    ]
+}

@@ -25,11 +25,14 @@ function AllRoutes() {
                   {!checkRoutes && (
                   <Route exact path="/" element={<Login />} />)}
 
+                  <Route exact path="/dashboard" element={<Dashboard />} />
+
+                    {/* 
                   <Route path="/dashboard" element={
                         <PrivateRoute>
                           <Dashboard />
                         </PrivateRoute> 
-                    } />     
+                    } />  */}   
 
                   <Route path="*" element={<Navigate to ={checkRoutes ? "/dashboard" : "/"} />} />
 
