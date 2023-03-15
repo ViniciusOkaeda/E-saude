@@ -25,13 +25,16 @@
 /* Fade in the currently hovered item */
 
 :root {
-  --bg-color-1: #212121;
-  --bg-color-2: #cfcfcf;
   
-  --theme-color: #fff;
-  --font-color: #fff;
+  --theme-color: linear-gradient(#F0F1F5, #E6E7EA);
+  --font-color: #161616;
+  --font-color-alternative: #161616;
+  --shadow-color: #161616;
+  --font-shadow-color: #161616;
+  --border-color: #161616;
+  --line-color: #161616;
 
-  --menu-color: #fff;
+  --menu-color: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   --font-menu-color: #fff;
 
   --bg-button-color: rgb(36, 36, 36);
@@ -49,7 +52,8 @@
 }
 
 body{
-  background-color: #fff;
+  background-color: var(--theme-color);
+  color: var(--font-color);
   overflow: hidden;
 }
 
@@ -57,7 +61,7 @@ body{
   width: 80%;
   height: 100%;
   min-height: 700px;
-  background-color: #00b44b;
+  background-image: var(--theme-color);
 }
 
 .content {

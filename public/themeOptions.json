@@ -16,26 +16,38 @@
             "themeColor": [
                 {
                     "type": "light",
-                    "color": "#ffffff"
+                    "color": "linear-gradient(#F0F1F5, #E6E7EA)",
+                    "fontColor": "#222222",
+                    "fontColorAlternative": "#222222",
+                    "shadowColor": "#222222",
+                    "fontShadowColor": "#222222",
+                    "borderColor": "#222222",
+                    "lineColor": "#222222"
                 },
                 {
                     "type": "dark",
-                    "color": "#000000"
+                    "color": "linear-gradient(#1e1e2f, #1e1e24)",
+                    "fontColor": "#000000",
+                    "fontColorAlternative": "#000000",
+                    "shadowColor": "#000000",
+                    "fontShadowColor": "#000000",
+                    "borderColor": "#000000",
+                    "lineColor": "#000000"
                 }
             ],
 
             "menuColor": [
                 {
-                    "color": "#2e6fac"
+                    "color": "linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)",
+                    "fontColor": "#FFFFFF"
                 },
                 {
-                    "color": "#ffcc00"
+                    "color": "linear-gradient(120deg, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%)",
+                    "fontColor": "#FFFFFF"
                 },
                 {
-                    "color": "#963d94"
-                },
-                {
-                    "color": "#e11d25"
+                    "color": "linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)",
+                    "fontColor": "#FFFFFF"
                 }
             ]
 

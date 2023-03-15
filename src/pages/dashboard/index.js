@@ -4,7 +4,7 @@ import Menu from '../../components/menu';
 import StyleConfig from '../style/styleConfig';
 
 const Dashboard = () => {
-
+//https://lite.codedthemes.com/datta-able/react/default/dashboard/default#!
 
     return(
         <div className="content">
