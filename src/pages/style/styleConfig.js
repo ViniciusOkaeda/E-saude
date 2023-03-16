@@ -20,6 +20,7 @@ const StyleConfig = () => {
                 shadowColor: '',
                 fontShadowcolor: '',
                 borderColor: '',
+                containerColor: '',
             }
         ],
 
@@ -28,6 +29,16 @@ const StyleConfig = () => {
                 type: '',
                 color: '',
                 fontColor: ''
+            }
+        ],
+
+        menuStyle: [
+            {
+                menuWidth: '',
+                menuHeight: '',
+                menuMinHeight: '',
+                menuDisplay: '',
+                menuMargin: '',
             }
         ],
 
@@ -56,19 +67,30 @@ const StyleConfig = () => {
             const currentFontShadowColor = localStorage.getItem('fontShadowColor');
             const currentBorderColor = localStorage.getItem('borderColor');
             const currentLineColor = localStorage.getItem('lineColor');
-            setTheme(currentThemeColor, currentFontColor, currentFontColorAlternative, currentShadowColor, currentFontShadowColor, currentBorderColor, currentLineColor);
+            const currentContainerColor = localStorage.getItem('containerColor');
+            setTheme(currentThemeColor, currentFontColor, currentFontColorAlternative, currentShadowColor, currentFontShadowColor, currentBorderColor, currentLineColor, currentContainerColor);
 
 
 
             const currentMenuColor = localStorage.getItem('menuColor');
             const currentMenuFontColor = localStorage.getItem('menuFontColor');
-            setMenuColor(currentMenuColor, currentMenuFontColor)
+            setMenuColor(currentMenuColor, currentMenuFontColor);
+
+
+
+            const currentMenuWidth = localStorage.getItem('menuWidth');
+            const currentMenuHeight = localStorage.getItem('menuHeight');
+            const currentMenuMinHeight = localStorage.getItem('menuMinHeight');
+            const currentMenuDisplay = localStorage.getItem('menuDisplay');
+            const currentMenuMargin = localStorage.getItem('menuMargin');
+            setMenuStyle(currentMenuWidth, currentMenuHeight, currentMenuMinHeight, currentMenuDisplay, currentMenuMargin);
+
     
 
 
       },[])
 
-      const setTheme = (themeColor, fontColor, fontColorAlternative, shadowColor, fontShadowColor, borderColor, lineColor) => {
+    const setTheme = (themeColor, fontColor, fontColorAlternative, shadowColor, fontShadowColor, borderColor, lineColor, containerColor) => {
         document.documentElement.style.setProperty('--theme-color', themeColor);
         document.documentElement.style.setProperty('--font-color', fontColor);
         document.documentElement.style.setProperty('--font-color-alternative', fontColorAlternative);
@@ -76,6 +98,7 @@ const StyleConfig = () => {
         document.documentElement.style.setProperty('--font-shadow-color', fontShadowColor);
         document.documentElement.style.setProperty('--border-color', borderColor);
         document.documentElement.style.setProperty('--line-color', lineColor);
+        document.documentElement.style.setProperty('--container-color', containerColor);
     }
 
     const setPalette = (event) => {
@@ -86,8 +109,9 @@ const StyleConfig = () => {
         const currentFontShadowColor = event.target.style.getPropertyValue('--font-shadow-color');
         const currentBorderColor = event.target.style.getPropertyValue('--border-color');
         const currentLineColor = event.target.style.getPropertyValue('--line-color');
+        const currentContainerColor = event.target.style.getPropertyValue('--container-color');
 
-        setTheme(currentThemeColor, currentFontColor, currentFontColorAlternative, currentShadowColor, currentFontShadowColor, currentBorderColor, currentLineColor);
+        setTheme(currentThemeColor, currentFontColor, currentFontColorAlternative, currentShadowColor, currentFontShadowColor, currentBorderColor, currentLineColor, currentContainerColor);
 
         localStorage.setItem('themeColor', currentThemeColor);
         localStorage.setItem('fontColor', currentFontColor);
@@ -96,6 +120,7 @@ const StyleConfig = () => {
         localStorage.setItem('fontShadowColor', currentFontShadowColor);
         localStorage.setItem('borderColor', currentBorderColor);
         localStorage.setItem('lineColor', currentLineColor);
+        localStorage.setItem('containerColor', currentContainerColor);
 
     }
 
@@ -114,6 +139,31 @@ const StyleConfig = () => {
 
         localStorage.setItem('menuColor', currentMenuColor);
         localStorage.setItem('menuFontColor', currentMenuFontColor);
+
+    }
+
+    const setMenuStyle = (menuWidth, menuHeight, menuMinHeight, menuDisplay, menuMargin) => {
+        document.documentElement.style.setProperty('--menu-width', menuWidth);
+        document.documentElement.style.setProperty('--menu-height', menuHeight);
+        document.documentElement.style.setProperty('--menu-min-height', menuMinHeight);
+        document.documentElement.style.setProperty('--menu-display', menuDisplay);
+        document.documentElement.style.setProperty('--menu-margin', menuMargin);
+    }
+
+    const setMenuType = (event) => {
+        const currentMenuWidth = event.target.style.getPropertyValue('--menu-width');
+        const currentMenuHeight = event.target.style.getPropertyValue('--menu-height');
+        const currentMenuMinHeight = event.target.style.getPropertyValue('--menu-min-height');
+        const currentMenuDisplay = event.target.style.getPropertyValue('--menu-display');
+        const currentMenuMargin = event.target.style.getPropertyValue('--menu-margin');
+
+        setMenuStyle(currentMenuWidth, currentMenuHeight, currentMenuMinHeight, currentMenuDisplay, currentMenuMargin);
+
+        localStorage.setItem('menuWidth', currentMenuWidth);
+        localStorage.setItem('menuHeight', currentMenuHeight);
+        localStorage.setItem('menuMinHeight', currentMenuMinHeight);
+        localStorage.setItem('menuDisplay', currentMenuDisplay);
+        localStorage.setItem('menuMargin', currentMenuMargin);
 
     }
 
@@ -143,6 +193,7 @@ const StyleConfig = () => {
                                     '--font-shadow-color': th.fontShadowColor,
                                     '--border-color': th.borderColor,
                                     '--line-color': th.lineColor,
+                                    '--container-color': th.containerColor,
                                 }} onClick={setPalette}>
 
                                 </div>
@@ -184,7 +235,31 @@ const StyleConfig = () => {
                     Layout Menu
                 </h2>
             </div>
-            <div className="contentStyed"> </div>
+            <div className="contentStyed">
+                {configOptions.map(e => e.menuStyle.map((type, idx) => {
+
+                    return(
+                        <div key={idx} className="typeContent">
+
+                            <div>
+                                <div className="typeContainer">
+                                    <p  style={{
+                                        '--menu-width': type.menuWidth,
+                                        '--menu-height': type.menuHeight,
+                                        '--menu-min-height': type.menuMinHeight,
+                                        '--menu-display': type.menuDisplay,
+                                        '--menu-margin': type.menuMargin
+                                    }} 
+                                    onClick={setMenuType}>Type {idx+1}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    )
+                }))
+
+                }
+            </div>
 
 
         

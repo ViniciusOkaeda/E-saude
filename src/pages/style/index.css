@@ -5,7 +5,8 @@
     min-width: 250px;
     max-width: 250px;
     position: absolute;
-    background-color: rgb(255, 255, 255);
+    box-shadow: -4px 1px 5px var(--shadow-color);
+    background-color: var(--container-color);
     right: 0%;
     overflow-y: scroll;
 }
@@ -18,8 +19,8 @@
 .headerStyled h2 {
     width: 100%;
     font-weight: 300;
-    color: #333;
-    border-bottom: 1px solid rgb(230, 230, 230) ;
+    color: var(--font-color);
+    border-bottom: 1px solid var(--line-color);
 }
 
 .contentStyed {
@@ -40,7 +41,7 @@
 .themeContent p{
     text-align: center;
     font-weight: bold;
-    color: #444;
+    color: var(--font-color-alternative);
 }
 .themeContainer {
     width: 75%;
@@ -62,12 +63,6 @@
 
 }
 
-.menuContent p {
-    text-align: center;
-    font-weight: bold;
-    color: #444;
-}
-
 .menuContainer {
     width: 50%;
     height: 30px;
@@ -77,4 +72,25 @@
     box-shadow: 2px 2px 2px rgb(126, 126, 126);
     border: 1px solid rgb(255, 255, 255);
     margin: 10px auto;
+}
+
+
+
+
+.typeContent {
+    width: 100%;
+    height: 100%;
+    margin: auto 2px;
+}
+.typeContainer {
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    border-right: 2px solid var(--line-color);
+    margin: 10px auto;
+}
+
+.typeContainer p {
+    width: 100%;
+    height: 100%;
 }

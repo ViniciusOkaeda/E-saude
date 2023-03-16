@@ -17,22 +17,24 @@
                 {
                     "type": "light",
                     "color": "linear-gradient(#F0F1F5, #E6E7EA)",
-                    "fontColor": "#222222",
-                    "fontColorAlternative": "#222222",
-                    "shadowColor": "#222222",
+                    "fontColor": "#1D253B",
+                    "fontColorAlternative": "#999999",
+                    "shadowColor": "rgba(94, 94, 94, 0.3)",
                     "fontShadowColor": "#222222",
                     "borderColor": "#222222",
-                    "lineColor": "#222222"
+                    "lineColor": "#E8E9EB",
+                    "containerColor": "#ffffff"
                 },
                 {
                     "type": "dark",
                     "color": "linear-gradient(#1e1e2f, #1e1e24)",
-                    "fontColor": "#000000",
-                    "fontColorAlternative": "#000000",
-                    "shadowColor": "#000000",
+                    "fontColor": "#FFFFFF",
+                    "fontColorAlternative": "#9A9A8E",
+                    "shadowColor": "rgba(24, 25, 38, 0.6)",
                     "fontShadowColor": "#000000",
                     "borderColor": "#000000",
-                    "lineColor": "#000000"
+                    "lineColor": "#2B3553",
+                    "containerColor": "#27293D"
                 }
             ],
 
@@ -49,6 +51,31 @@
                     "color": "linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)",
                     "fontColor": "#FFFFFF"
                 }
+            ],
+
+            "menuStyle": [
+                {
+                    "menuWidth": "19%",
+                    "menuHeight": "100%",
+                    "menuMinHeight": "700px",
+                    "menuDisplay": "block",
+                    "menuMargin": "auto 1% auto auto"
+                },
+                {
+                    "menuWidth": "6%",
+                    "menuHeight": "100%",
+                    "menuMinHeight": "700px",
+                    "menuDisplay": "none",
+                    "menuMargin": "auto 1% auto 0%"
+                },
+                {
+                    "menuWidth": "6%",
+                    "menuHeight": "100%",
+                    "menuMinHeight": "500px",
+                    "menuDisplay": "none",
+                    "menuMargin": "auto 1% auto 1%"
+                }
+
             ]
 
 

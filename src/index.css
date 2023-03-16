@@ -33,9 +33,16 @@
   --font-shadow-color: #161616;
   --border-color: #161616;
   --line-color: #161616;
+  --container-color: #fff;
 
   --menu-color: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   --font-menu-color: #fff;
+
+  --menu-width: 19%;
+  --menu-height: 100%;
+  --menu-min-height: 700px;
+  --menu-display: block;
+  --menu-margin: auto 1% auto auto;
 
   --bg-button-color: rgb(36, 36, 36);
   --bg-effect-color: rgb(54, 54, 54);
@@ -52,7 +59,7 @@
 }
 
 body{
-  background-color: var(--theme-color);
+  background-image: var(--theme-color);
   color: var(--font-color);
   overflow: hidden;
 }

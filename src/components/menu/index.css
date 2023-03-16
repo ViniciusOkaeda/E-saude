@@ -1,6 +1,93 @@
 .containerMenu {
-    width: 20%;
-    height: 100%;
-    min-height: 700px;
+    width: var(--menu-width);
+    height: var(--menu-height);
+    margin: var(--menu-margin);
+    min-height: var(--menu-min-height);
     background-image: var(--menu-color);
+    box-shadow: 4px 2px 8px var(--shadow-color);
+}
+
+.containerMenu:hover {
+    width: 19%;
+    margin: var(--menu-margin);
+}
+
+.containerMenu90 {
+    width: 90%;
+    height: auto;
+    max-height: 80%;
+    padding: 10px 0px 60px 0px;
+    margin: 20px auto auto auto;
+}
+
+.containerMenu90 a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.containerMenuLogo {
+    width: 100%;
+    height: 30%;
+    min-height: 120px;
+    max-height: 160px;
+    display: var(--menu-display);
+    background-color: red;
+}
+
+.containerMenuLine {
+    width: 100%;
+    height: 10px;
+    margin: 15px 0px 40px 0px;
+    border-bottom: 1px solid white;
+}
+
+.containerMenuLinks {
+    width: 100%;
+    height: auto;
+    min-height: 50px;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.containerMenuLinks:hover {
+    background-color: rgba(70, 70, 70, 0.5);
+    border-radius: 5px;
+}
+
+.containerMenuIcon {
+    width: auto;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 50px;
+    padding-left: 5px;
+    min-width: 45px;
+}
+
+.menuIcon{
+    color: #FFF;
+    max-width: 50px;
+}
+
+
+
+.containerMenuText {
+    width: auto;
+    height: auto;
+    display: var(--menu-display);
+    min-width: 160px;
+    max-width: 160px;
+    padding: 0px 10px;
+}
+.containerMenuText p {
+    text-align: left;
+    padding-top: 15px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.containerMenu:hover .containerMenuText{
+    display: block;
+
 }
