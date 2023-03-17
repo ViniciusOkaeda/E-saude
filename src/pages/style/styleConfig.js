@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import { useEffect, useState, useRef } from "react";
 import axios from 'axios';
 
 import './index.css';
 
 const StyleConfig = () => {
+    let dropDownRef = useRef();
     const [configOptions, setConfigOptions ] = useState([{
 
         primaryColor: [
@@ -44,9 +45,14 @@ const StyleConfig = () => {
 
     }]);
 
+    const [isActive, setIsActive] = useState(false);
+    
+    const handleOpenDropDown = () => setIsActive(!isActive);
+
     console.log("o config", configOptions);
 
       useEffect (() => {
+
         fetch('themeOptions.json', {
             headers: {
                 Accept: "application/json"
@@ -86,6 +92,20 @@ const StyleConfig = () => {
             setMenuStyle(currentMenuWidth, currentMenuHeight, currentMenuMinHeight, currentMenuDisplay, currentMenuMargin);
 
     
+
+        let handler = (e) => {
+            if(!dropDownRef.current.contains(e.target)){
+                setIsActive(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handler);
+
+        return() => {
+            document.removeEventListener("mousedown", handler);
+        }
+
+
 
 
       },[])
@@ -170,105 +190,111 @@ const StyleConfig = () => {
 
 
     return(
-        <div className="containerStyle">
-            
-            <div className="headerStyled">
-                <h2>
-                    Theme Mode
-                </h2>
+
+        <div ref={dropDownRef}>
+            <div className="configOpenOptions">
+                <button onClick={handleOpenDropDown}> </button>
             </div>
-            <div className="contentStyed">
-                {configOptions.map(e => e.themeColor.map((th,idx) => {
-                    return(
-                        <div key={idx} className="themeContent">
-                            
-                            <div>
-                                <p>{th.type}</p>
-
-                                <div className="themeContainer" style={{
-                                    '--theme-color': th.color,
-                                    '--font-color': th.fontColor,
-                                    '--font-color-alternative': th.fontColorAlternative,
-                                    '--shadow-color': th.shadowColor,
-                                    '--font-shadow-color': th.fontShadowColor,
-                                    '--border-color': th.borderColor,
-                                    '--line-color': th.lineColor,
-                                    '--container-color': th.containerColor,
-                                }} onClick={setPalette}>
-
-                                </div>
-                            </div>
-                        </div>
-                    )
-                }))}
-            </div>
-
-
-            <div className="headerStyled">
-                <h2>
-                    Menu Background
-                </h2>
-            </div>
-            <div className="contentStyed" style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)'}}> 
-                {configOptions.map(e => e.menuColor.map((mn,idx) => {
+            <div className={`containerStyle ${isActive ? "active" : "inactive"}`}>
+                
+                <div className="headerStyled">
+                    <h2>
+                        Theme Mode
+                    </h2>
+                </div>
+                <div className="contentStyed">
+                    {configOptions.map(e => e.themeColor.map((th,idx) => {
                         return(
-                            <div key={idx} className="menuContent">
+                            <div key={idx} className="themeContent">
                                 
                                 <div>
+                                    <p>{th.type}</p>
 
-                                    <div className="menuContainer" style={{
-                                        '--menu-color': mn.color,
-                                        '--font-menu-color': mn.fontColor,
-                                    }}
-                                    onClick={setPaletteMenu}
-                                    >
+                                    <div className="themeContainer" style={{
+                                        '--theme-color': th.color,
+                                        '--font-color': th.fontColor,
+                                        '--font-color-alternative': th.fontColorAlternative,
+                                        '--shadow-color': th.shadowColor,
+                                        '--font-shadow-color': th.fontShadowColor,
+                                        '--border-color': th.borderColor,
+                                        '--line-color': th.lineColor,
+                                        '--container-color': th.containerColor,
+                                    }} onClick={setPalette}>
 
                                     </div>
                                 </div>
                             </div>
                         )
-                }))}            
-            </div>
+                    }))}
+                </div>
 
-            <div className="headerStyled">
-                <h2>
-                    Layout Menu
-                </h2>
-            </div>
-            <div className="contentStyed">
-                {configOptions.map(e => e.menuStyle.map((type, idx) => {
 
-                    return(
-                        <div key={idx} className="typeContent">
+                <div className="headerStyled">
+                    <h2>
+                        Menu Background
+                    </h2>
+                </div>
+                <div className="contentStyed" style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)'}}> 
+                    {configOptions.map(e => e.menuColor.map((mn,idx) => {
+                            return(
+                                <div key={idx} className="menuContent">
+                                    
+                                    <div>
 
-                            <div>
-                                <div className="typeContainer">
-                                    <p  style={{
-                                        '--menu-width': type.menuWidth,
-                                        '--menu-height': type.menuHeight,
-                                        '--menu-min-height': type.menuMinHeight,
-                                        '--menu-display': type.menuDisplay,
-                                        '--menu-margin': type.menuMargin
-                                    }} 
-                                    onClick={setMenuType}>Type {idx+1}</p>
+                                        <div className="menuContainer" style={{
+                                            '--menu-color': mn.color,
+                                            '--font-menu-color': mn.fontColor,
+                                        }}
+                                        onClick={setPaletteMenu}
+                                        >
+
+                                        </div>
+                                    </div>
                                 </div>
+                            )
+                    }))}            
+                </div>
+
+                <div className="headerStyled">
+                    <h2>
+                        Layout Menu
+                    </h2>
+                </div>
+                <div className="contentStyed">
+                    {configOptions.map(e => e.menuStyle.map((type, idx) => {
+
+                        return(
+                            <div key={idx} className="typeContent">
+
+                                <div>
+                                    <div className="typeContainer">
+                                        <p  style={{
+                                            '--menu-width': type.menuWidth,
+                                            '--menu-height': type.menuHeight,
+                                            '--menu-min-height': type.menuMinHeight,
+                                            '--menu-display': type.menuDisplay,
+                                            '--menu-margin': type.menuMargin
+                                        }} 
+                                        onClick={setMenuType}>Type {idx+1}</p>
+                                    </div>
+                                </div>
+
                             </div>
+                        )
+                    }))
 
-                        </div>
-                    )
-                }))
+                    }
+                </div>
 
-                }
+
+            
+                <div className="headerStyled">
+                    <h2>
+                        Layout Menu
+                    </h2>
+                </div>
+                <div className="contentStyed"> </div>
             </div>
-
-
-        
-            <div className="headerStyled">
-                <h2>
-                    Layout Menu
-                </h2>
-            </div>
-            <div className="contentStyed"> </div>
         </div>
     );
 }

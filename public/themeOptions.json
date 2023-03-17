@@ -40,16 +40,28 @@
 
             "menuColor": [
                 {
-                    "color": "linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)",
-                    "fontColor": "#FFFFFF"
+                    "color": "linear-gradient(to left top, #3f4d67, #3a566e, #375f72, #376874, #3d7074)",
+                    "fontColor": "#e8e9eb"
                 },
                 {
-                    "color": "linear-gradient(120deg, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%)",
-                    "fontColor": "#FFFFFF"
+                    "color": "linear-gradient(to left top, #fc5b8f, #fd4e79, #fb4262, #f7384a, #f03330)",
+                    "fontColor": "#e8e9eb"
                 },
                 {
-                    "color": "linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)",
-                    "fontColor": "#FFFFFF"
+                    "color": "linear-gradient(to top, #008f7a, #009d84, #00ac8e, #00ba98, #00c9a2)",
+                    "fontColor": "#e8e9eb"
+                },
+                {
+                    "color": "linear-gradient(to top, #7f3fb2, #9452c5, #a965d8, #be79eb, #d38dff)",
+                    "fontColor": "#e8e9eb"
+                },
+                {
+                    "color": "linear-gradient(to top, #354b46, #374d48, #394f4a, #3c524d, #3e544f)",
+                    "fontColor": "#e8e9eb"
+                },
+                {
+                    "color": "linear-gradient(to left top, #1e8af8, #1280f9, #1376f9, #206bf7, #305ff5)",
+                    "fontColor": "#e8e9eb"
                 }
             ],
 

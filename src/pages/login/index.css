@@ -1,6 +1,183 @@
+.renderSelect {
+    background-color: var(--theme-color);
+    width: 100%;
+    height: 100%;
+    min-height: 800px;
+}
 
+.renderSelect.active {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+  
+  }
+  .renderSelect.inactive {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+  }
+
+  .configPage {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    max-height: 700px;
+}
+
+.heading{
+    font-size: 1.9rem;
+    margin: 0.6em auto 1.4em auto;
+    max-width: 1300px;
+    border-bottom: 1px solid black;
+    width: 90%;
+    color: var(--font-color);
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .configGrid {
+    width: 90%;
+    height: auto;
+    max-width: 1300px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: auto;
+  }
+
+  .configGrid > * {
+    flex: auto;
+    margin: 0.1em;
+    text-align: center;
+    font-size: 1.5em;
+    text-decoration: none;
+  }
+
+  .configGrid { 
+    visibility: hidden; 
+  }
+  
+  .configGrid > * { 
+    visibility: visible; 
+  }
+  
+  .configGrid > * { 
+    transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms; 
+  }
+  
+  .configGrid:hover > * { 
+    opacity: 0.4; transform: scale(0.9); 
+  }
+  
+  .configGrid > *:hover { 
+    opacity: 1; transform: scale(1.2); 
+    transition-delay: 0ms, 0ms; 
+  }
+
+  .gridItem {
+    max-width: 150px;
+    max-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .gridItem img {
+    max-width: 150px;
+    max-height: auto;
+    object-fit: contain;
+  }
+
+  .configLogin {
+    width: 100%;
+    height: 100%;
+    min-height: 800px;
+    display: flex;
+  }
+
+  .configLoginBackground {
+    position: fixed;
+    z-index: 0;
+    width: 100%;
+    background-color: rgb(131, 131, 131);
+    background-image: url(https://static.vecteezy.com/system/resources/previews/014/040/222/non_2x/line-pattern-seamless-background-abstract-drawn-graphic-design-free-png.png);
+    height: 100%;
+  }
+
+  .configLoginForm {
+    position: absolute;
+    z-index: 1;
+    width: 80%;
+    background-color: #222222;
+    box-shadow: 2px 2px 2px rgb(131, 131, 131);
+    height: 90%;
+    left: 10%;
+    top: 5%;
+    border-radius: 5px;
+    margin: auto;
+    min-height: 500px;
+    display: flex;
+  }
+
+  .loginContent{
+    width: 60%;
+    height: 100%;
+    background-color: rgba(16, 43, 74, 1);
+  }
+
+  .loginBackgroundImage {
+    width: 40%;
+    height: 100%;
+  }
+
+  .shadow {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.shadow::before{
+    content: " ";
+    width: 40%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(16, 43, 74, 1), rgba(0, 0, 0, 0.7));
+    opacity: 1;
+    position: absolute;
+    border-radius: 0px 20px 20px 0px;
+
+}
+
+
+@media only screen and (max-width: 900px) {
+    .configGrid {
+        grid-template-columns: repeat(3, 1fr);
+
+      }
+}
+@media only screen and (max-width: 700px) {
+    .configGrid {
+        grid-template-columns: repeat(2, 1fr);
+
+      }
+}
 
 @media only screen and (max-width: 400px) {
+    .configGrid {
+        grid-template-columns: repeat(1, 1fr);
 
+      }
+
+      .configGrid {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+      }
   
     }

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './index.css';
 import Menu from '../../components/menu';
 import StyleConfig from '../style/styleConfig';
+import OptionsUser from '../../components/optionsUser';
 import StyledCard1 from '../../components/cards/style1';
 
 const Dashboard = () => {
@@ -13,6 +14,17 @@ const Dashboard = () => {
             <Menu />
             <StyleConfig />
             <div className="container">
+
+                <div className="headerContent">
+                    <div className="headerContentTitle"><h2>Dashboard</h2></div>
+                    <div className="headerContentOptions"><OptionsUser /></div>
+                </div>
+
+
+                <StyledCard1 />
+                <StyledCard1 />
+                <StyledCard1 />
+                <StyledCard1 />
                 <StyledCard1 />
 
             </div>

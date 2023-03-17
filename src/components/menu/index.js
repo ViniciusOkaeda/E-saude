@@ -1,41 +1,87 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
 import QueuePlayNextIcon from '@mui/icons-material/QueuePlayNext';
+import HomeIcon from '@mui/icons-material/Home';
+import OptionsUser from '../optionsUser';
+import MenuIcon from '@mui/icons-material/Menu';
 import './index.css';
 
 const Menu = () => {
+    let dropDownRef = useRef();
+    const [isActive, setIsActive] = useState(false);
+    
+    const handleOpenDropDown = () => setIsActive(!isActive);
+
+    useEffect(() => {
+        let handler = (e) => {
+            if(!dropDownRef.current.contains(e.target)){
+                setIsActive(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handler);
+
+        return() => {
+            document.removeEventListener("mousedown", handler);
+        }
+
+    },[])
 
 
     return(
-        <div className="containerMenu">
-            <div className="containerMenu90">
-                <div className="containerMenuLogo"></div>
-                <div className="containerMenuLine"></div>
+        <>
+            <div className="containerMenu">
+                <div className="containerMenu90">
+                    <div className="containerMenuLogo"></div>
+                    <div className="containerMenuLine"></div>
 
-                <a>
-                    <div className="containerMenuLinks">
-                        <div className="containerMenuIcon"><DashboardIcon className="menuIcon" sx={{ fontSize: '1.6em'}}/></div>
-                        <div className="containerMenuText"><p>Dashboard</p></div>
-                    </div>
-                </a>
+                    <a>
+                        <div className="containerMenuLinks">
+                            <div className="containerMenuIcon"><HomeIcon className="menuIcon" sx={{ fontSize: '1.6em'}}/></div>
+                            <div className="containerMenuText"><p>Dashboard</p></div>
+                        </div>
+                    </a>
 
-                <a>
-                    <div className="containerMenuLinks">
-                        <div className="containerMenuIcon"><QueuePlayNextIcon className="menuIcon" sx={{ fontSize: '1.6em'}}/></div>
-                        <div className="containerMenuText"><p>Produtos Digitais</p></div>
-                    </div>
-                </a>
-                
-                <a>
-                    <div className="containerMenuLinks">
-                        <div className="containerMenuIcon"><QueuePlayNextIcon className="menuIcon" sx={{ fontSize: '1.6em'}}/></div>
-                        <div className="containerMenuText"><p>Telemedicina</p></div>
-                    </div>
-                </a>
+                    <a>
+                        <div className="containerMenuLinks">
+                            <div className="containerMenuIcon"><QueuePlayNextIcon className="menuIcon" sx={{ fontSize: '1.6em'}}/></div>
+                            <div className="containerMenuText"><p>Produtos Digitais</p></div>
+                        </div>
+                    </a>
+                    
+                    <a>
+                        <div className="containerMenuLinks">
+                            <div className="containerMenuIcon"><MedicalInformationIcon className="menuIcon" sx={{ fontSize: '1.6em'}}/></div>
+                            <div className="containerMenuText"><p>Telemedicina</p></div>
+                        </div>
+                    </a>
 
 
+                </div>
             </div>
-        </div>
+
+            <div className="containerMenuMobile">
+            <div ref={dropDownRef} className="menuConfigItemsMobile">
+                    <MenuIcon onClick={handleOpenDropDown} className="menuIconMobile" sx={{ fontSize: '2.1em'}}/>
+                    <nav 
+                        className={`optionsMobile ${isActive ? "active" : "inactive"}`}
+                    >
+                        <ul>
+                            <a href="/dashboard?token=3251316"><li><DashboardIcon /><p>Dashboard</p></li></a>
+                            <a href="/sva" ><li><QueuePlayNextIcon /><p>SVA's</p></li></a>
+                            <a href="/sva" ><li><QueuePlayNextIcon /><p>SVA's</p></li></a>
+                        </ul> 
+                    </nav>
+                </div>
+
+
+                <div className="menuConfigItemsMobile">
+                    <div className="menuContentUserOptions"><OptionsUser /></div>
+                </div>
+            </div>
+        
+        </>
     );
 }
 
