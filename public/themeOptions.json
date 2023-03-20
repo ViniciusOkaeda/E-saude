@@ -20,8 +20,8 @@
                     "fontColor": "#1D253B",
                     "fontColorAlternative": "#999999",
                     "shadowColor": "rgba(94, 94, 94, 0.3)",
-                    "fontShadowColor": "#222222",
-                    "borderColor": "#222222",
+                    "fontShadowColor": "#c4c4c4",
+                    "borderColor": "rgba(0, 2, 34, 0.2)",
                     "lineColor": "#E8E9EB",
                     "containerColor": "#ffffff"
                 },
@@ -31,8 +31,8 @@
                     "fontColor": "#FFFFFF",
                     "fontColorAlternative": "#9A9A8E",
                     "shadowColor": "rgba(24, 25, 38, 0.6)",
-                    "fontShadowColor": "#000000",
-                    "borderColor": "#000000",
+                    "fontShadowColor": "#222222",
+                    "borderColor": "rgba(0, 0, 0, 0.2)",
                     "lineColor": "#2B3553",
                     "containerColor": "#27293D"
                 }

@@ -5,15 +5,15 @@ import './index.css';
 
 const OptionsUser = () => {
     let dropDownRef = useRef();
-    //let profile = sessionStorage.getItem('profile');
+    let profile = sessionStorage.getItem('profile');
     const [isActive, setIsActive] = useState(false);
     
     const handleOpenDropDown = () => setIsActive(!isActive);
 
     async function logout() {
-        //sessionStorage.removeItem("token");
-        //sessionStorage.removeItem("profile");
-        //window.location.href = '/';
+        sessionStorage.removeItem("token");
+        sessionStorage.removeItem("profile");
+        window.location.href = '/';
     }
 
     useEffect(() => {
@@ -35,7 +35,7 @@ const OptionsUser = () => {
     return(
         <div ref={dropDownRef} className="optionsContent">
             <div className="optionsContent2">
-                <button onClick={handleOpenDropDown}>XX</button>
+                <button onClick={handleOpenDropDown}>{profile.substr(0, 2)}</button>
             </div>
 
             <nav 

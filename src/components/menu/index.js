@@ -9,6 +9,7 @@ import './index.css';
 
 const Menu = () => {
     let dropDownRef = useRef();
+    let companyImg = sessionStorage.getItem('companyImg')
     const [isActive, setIsActive] = useState(false);
     
     const handleOpenDropDown = () => setIsActive(!isActive);
@@ -33,24 +34,26 @@ const Menu = () => {
         <>
             <div className="containerMenu">
                 <div className="containerMenu90">
-                    <div className="containerMenuLogo"></div>
+                    <div className="containerMenuLogo">
+                        <img src={companyImg}></img>
+                    </div>
                     <div className="containerMenuLine"></div>
 
-                    <a>
+                    <a href='/dashboard'>
                         <div className="containerMenuLinks">
                             <div className="containerMenuIcon"><HomeIcon className="menuIcon" sx={{ fontSize: '1.6em'}}/></div>
                             <div className="containerMenuText"><p>Dashboard</p></div>
                         </div>
                     </a>
 
-                    <a>
+                    <a href='/sva'>
                         <div className="containerMenuLinks">
                             <div className="containerMenuIcon"><QueuePlayNextIcon className="menuIcon" sx={{ fontSize: '1.6em'}}/></div>
                             <div className="containerMenuText"><p>Produtos Digitais</p></div>
                         </div>
                     </a>
                     
-                    <a>
+                    <a href='/telemedicina'>
                         <div className="containerMenuLinks">
                             <div className="containerMenuIcon"><MedicalInformationIcon className="menuIcon" sx={{ fontSize: '1.6em'}}/></div>
                             <div className="containerMenuText"><p>Telemedicina</p></div>

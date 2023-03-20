@@ -1,0 +1,22 @@
+.chartContainer {
+    width: 95%;
+    height: 100%;
+    max-width: 400px;
+    max-height: 350px;
+    margin: 20px;
+    padding: 20px;
+    background-color: var(--container-color);
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px var(--shadow-color);
+}
+
+.chartContainer h3 {
+    text-align: center;
+    padding-bottom: 5px;
+    width: 100%;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px var(--font-shadow-color);
+    border-bottom: 1px solid var(--line-color);
+    font-size: 1.4rem;
+    color: var(--font-color);
+}

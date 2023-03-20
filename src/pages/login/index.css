@@ -104,8 +104,21 @@
     position: fixed;
     z-index: 0;
     width: 100%;
-    background-color: rgb(131, 131, 131);
-    background-image: url(https://static.vecteezy.com/system/resources/previews/014/040/222/non_2x/line-pattern-seamless-background-abstract-drawn-graphic-design-free-png.png);
+    height: 100%;
+  }
+  .configLoginBackground video {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .backgroundColor {
+    background-color: rgba(26, 26, 26, 0.8);
+    position: fixed;
+    z-index: -0;
+    width: 100%;
     height: 100%;
   }
 
@@ -113,45 +126,114 @@
     position: absolute;
     z-index: 1;
     width: 80%;
+    max-width: 1300px;
     background-color: #222222;
-    box-shadow: 2px 2px 2px rgb(131, 131, 131);
+    box-shadow: 2px 2px 2px rgb(22, 22, 22);
     height: 90%;
+    border-radius: 15px;
     left: 10%;
     top: 5%;
-    border-radius: 5px;
     margin: auto;
     min-height: 500px;
     display: flex;
   }
 
   .loginContent{
-    width: 60%;
+    width: 50%;
     height: 100%;
-    background-color: rgba(16, 43, 74, 1);
+    background-color: rgb(66, 66, 66);
+    border-radius: 15px 0px 0px 15px;
+
+  }
+
+  .loginContent1 {
+    width: 80%;
+    min-height: 40px;
+    max-height: 100px;
+    margin: 40px auto 20px auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .contentLoginReturn {
+    width: 40px;
+    height: 40px;
+    margin-right: 25px;
+  }
+  
+  .contentLoginReturn Button {
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    background-color: inherit;
+    border-radius: 10%;
+  }
+  .contentLoginReturn Button:hover {
+    color: #e2e2e2;
+    background-color: var(--bg-effect-color);
+  }
+
+  .loginContent1 img {
+    height: 50px;
+    width: auto;
+  }
+
+  .loginContent2 {
+    width: 80%;
+    margin: 50px auto 10px auto;
+  }
+
+  .loginContent2 h4 {
+    color: #9A9A8E;
+    margin-bottom: 5px;
+    font-weight: 300;
+    font-size: 0.9rem;
+  }
+  .loginContent2 h2 {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+
+  .loginForm {
+    width: 80%;
+    margin: 40px auto 10px auto;
+  }
+
+  .contentLoginButton button {
+    width: 100%;
+    background-color: var(--bg-button-color);
+    margin-top: 20px;
+  }
+  .contentLoginButton button:hover {
+    background-color: var(--bg-effect-color);
   }
 
   .loginBackgroundImage {
-    width: 40%;
+    width: 50%;
     height: 100%;
+    border-radius: 0px 15px 15px 0px;
   }
 
   .shadow {
     width: 100%;
     height: 100%;
     background-size: cover;
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 0px 15px 15px 0px;
 }
 
 .shadow::before{
     content: " ";
-    width: 40%;
+    width: 50%;
     height: 100%;
-    background-image: linear-gradient(to right, rgba(16, 43, 74, 1), rgba(0, 0, 0, 0.7));
+    background-image: linear-gradient(to right, rgb(66, 66, 66), rgba(0, 0, 0, 0.7));
     opacity: 1;
     position: absolute;
-    border-radius: 0px 20px 20px 0px;
+    border-radius: 0px 15px 15px 0px;
 
 }
+
+
 
 
 @media only screen and (max-width: 900px) {
@@ -159,12 +241,62 @@
         grid-template-columns: repeat(3, 1fr);
 
       }
+      .configLoginForm {
+        width: 90%;
+        left: 5%;
+      }
+
+      .loginContent {
+        width: 60%;
+      }
+
+      .loginBackgroundImage {
+        width: 40%;
+      }
+
+      .shadow::before{
+        width: 40%;
+    }
 }
 @media only screen and (max-width: 700px) {
     .configGrid {
         grid-template-columns: repeat(2, 1fr);
 
       }
+
+      .loginContent {
+        width: 70%;
+      }
+
+      .loginBackgroundImage {
+        width: 30%;
+      }
+
+      .shadow::before{
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+  .configLoginForm {
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    border-radius: 0px;
+  }
+
+  .loginContent {
+    width: 100%;
+  }
+
+  .loginBackgroundImage {
+    display: none;  
+}
+
+.loginContent {
+  border-radius: 0px;
+}
 }
 
 @media only screen and (max-width: 400px) {
