@@ -52,13 +52,6 @@ const Menu = () => {
                             <div className="containerMenuText"><p>Produtos Digitais</p></div>
                         </div>
                     </a>
-                    
-                    <a href='/telemedicina'>
-                        <div className="containerMenuLinks">
-                            <div className="containerMenuIcon"><MedicalInformationIcon className="menuIcon" sx={{ fontSize: '1.6em'}}/></div>
-                            <div className="containerMenuText"><p>Telemedicina</p></div>
-                        </div>
-                    </a>
 
 
                 </div>
@@ -72,7 +65,6 @@ const Menu = () => {
                     >
                         <ul>
                             <a href="/dashboard?token=3251316"><li><DashboardIcon /><p>Dashboard</p></li></a>
-                            <a href="/sva" ><li><QueuePlayNextIcon /><p>SVA's</p></li></a>
                             <a href="/sva" ><li><QueuePlayNextIcon /><p>SVA's</p></li></a>
                         </ul> 
                     </nav>

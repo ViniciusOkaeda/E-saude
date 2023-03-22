@@ -61,6 +61,11 @@ const Login = () => {
       event.preventDefault();
     };
 
+    function handleSubmit(event) {
+        event.preventDefault();
+        login();
+      }
+
     const apis = axios.create({
         baseURL: 'https://ativacao.youcast.tv.br/api/v1/internal/',
         headers: {
@@ -73,6 +78,7 @@ const Login = () => {
       })
 
     useEffect(() => {
+
         if(sessionStorage.getItem('idCompany')) {
             setVendorExists(true);
         }
@@ -80,16 +86,52 @@ const Login = () => {
         (async () => {
             const result = await apis.get('/parceiros', {
             }).then((result) => {
-                setProvedorList(result.data.response)
+                if(companyName == null ) {
+                    //console.log("o result", result.data.response)
+                    console.log("o result", result.data.response.filter(e => e.name === 'Weclix').map(e => e.name).reduce(e => e))
+                    setProvedorList(result.data.response)
+                }else if(companyName !== null) {
+                    setProvedorList(result.data.response.filter(e => e.name === companyName))
+                }
             }).catch((error) => {
                 console.log(error);
             })
         })();
+
+        if(ctoken == null || bannerId == null) {
+            setUserByBanner(false);
+            setUserByWeb(true);
+        } else if(ctoken !== null || bannerId !== null) {
+            let token = ctoken;
+            let bannerid = parseInt(bannerId);
+            apis.post('login/auto', {
+                token,
+                bannerid
+            }).then(function (response) {
+                if(response.data.status === 1) {
+                        sessionStorage.setItem("token", response.data.response.token);
+                        sessionStorage.setItem("profile", response.data.response.profileName);
+                        //console.log(response.data.response.idcompany);
+                        //console.log("os provedor", provedorList.filter(e => e.id == response.data.response.idcompany));
+                       // if(response.data.response.idcompany) 
+                        //window.location.href = '/dashboard';
+                } else {
+                    window.location.href = '/';
+                }
+            }).catch(function (error) {
+                setError(error);
+                setErrorState(true);
+                window.location.href = '/'
+            })
+        }
+
+
     },[])
 
     async function login() {
         let login = username;
         let idcompany = parseInt(sessionStorage.getItem('idCompany'))
+        setErrorState(false);
         apis.post('login', {idcompany, login, password})
             .then(function (response) {
                 if(response.data.status === 1) {
@@ -122,7 +164,7 @@ const Login = () => {
 
     return(
         <div >
-            <div className={`renderSelect ${userByWeb === false ? "active" : "inactive"}`}>
+            <div className={`renderSelect ${userByWeb === true ? "active" : "inactive"}`}>
                 {vendorExists === false
                     ?
                         <div className="configPage">
@@ -169,42 +211,45 @@ const Login = () => {
                                 </div>
 
                                 <div className="loginForm">
-                                    <Box sx={{ display: 'flex', flexWrap: 'wrap', width: '100%'}}>
-                                            <div>
-                                                <TextField 
-                                                    label="Username" 
-                                                    id="outlined-size-normal" 
-                                                    sx={{width: '100%', marginBottom: '3%'}}
-                                                    onChange={e => setUsername(e.target.value)}
-                                                />
-                                                
-                                                <FormControl sx={{width: '100%', marginBottom: '6%' }} variant="outlined">
-                                                <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-                                                <OutlinedInput
-                                                    id="outlined-adornment-password"
-                                                    type={showPassword ? 'text' : 'password'}
-                                                    onChange={e => setPassword(e.target.value)}
-                                                    endAdornment={
-                                                    <InputAdornment position="end">
-                                                        <IconButton
-                                                        aria-label="toggle password visibility"
-                                                        onClick={handleClickShowPassword}
-                                                        onMouseDown={handleMouseDownPassword}
-                                                        edge="end"
-                                                        >
-                                                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                                                        </IconButton>
-                                                    </InputAdornment>
-                                                    }
-                                                    label="Password"
-                                                />
-                                                </FormControl>
-                                            </div>
-                                    </Box>
+                                    <form onSubmit={handleSubmit}>
+                                        <Box sx={{ display: 'flex', flexWrap: 'wrap', width: '100%'}}>
+                                                <div>
+                                                    <TextField 
+                                                        label="Username" 
+                                                        id="outlined-size-normal" 
+                                                        sx={{width: '100%', marginBottom: '3%'}}
+                                                        onChange={e => setUsername(e.target.value)}
+                                                    />
+                                                    
+                                                    <FormControl sx={{width: '100%', marginBottom: '6%' }} variant="outlined">
+                                                    <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                                                    <OutlinedInput
+                                                        id="outlined-adornment-password"
+                                                        type={showPassword ? 'text' : 'password'}
+                                                        onChange={e => setPassword(e.target.value)}
+                                                        endAdornment={
+                                                        <InputAdornment position="end">
+                                                            <IconButton
+                                                            aria-label="toggle password visibility"
+                                                            onClick={handleClickShowPassword}
+                                                            onMouseDown={handleMouseDownPassword}
+                                                            edge="end"
+                                                            >
+                                                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                            </IconButton>
+                                                        </InputAdornment>
+                                                        }
+                                                        label="Password"
+                                                    />
+                                                    </FormControl>
+                                                </div>
+                                        </Box>
 
                                         <div className="contentLoginButton"> 
-                                            <button type="submit" onClick={login}>Fazer Login</button>
+                                            <button type="submit">Fazer Login</button>
                                         </div>
+                                    </form>
+
                                 </div>
                             </div>
 
@@ -216,9 +261,79 @@ const Login = () => {
 
                         </div>
 
+                        <Box className='returnInfoButtons'>
+                        <Collapse in={errorState}>
+                            <Alert
+                            severity="error"
+                            action={
+                                <IconButton
+                                aria-label="close"
+                                color="inherit"
+                                size="small"
+                                onClick={() => {
+                                    setErrorState(false);
+                                }}
+                                >
+                                <CloseIcon fontSize="inherit" />
+                                </IconButton>
+                            }
+                            sx={{ mb: 2 }}
+                            >
+                            {error && <div className="error">{error}</div>}
+                            </Alert>
+                        </Collapse>
+                        <Collapse in={infoState}>
+                            <Alert
+                            severity="warning"
+                            action={
+                                <IconButton
+                                aria-label="close"
+                                color="inherit"
+                                size="small"
+                                onClick={() => {
+                                    setInfoState(false);
+                                }}
+                                >
+                                <CloseIcon fontSize="inherit" />
+                                </IconButton>
+                            }
+                            sx={{ mb: 2 }}
+                            >
+                            <p className="info">
+                            Login sendo efetuado, aguarde um momento...
+                            </p>
+                            </Alert>
+                        </Collapse>
+                        <Collapse in={sucessState}>
+                            <Alert
+                            severity="success"
+                            action={
+                                <IconButton
+                                aria-label="close"
+                                color="inherit"
+                                size="small"
+                                onClick={() => {
+                                    setSucessState(false);
+                                }}
+                                >
+                                <CloseIcon fontSize="inherit" />
+                                </IconButton>
+                            }
+                            sx={{ mb: 2 }}
+                            >
+                            <p className="success">
+                            Login efetuado com sucesso! Você já pode utilizar nosso portal
+                            </p>
+                            </Alert>
+                        </Collapse>
+                        </Box>
+
                     </div>
                 }
             </div>
+
+        <Loader userByBanner={userByBanner}/>
+
 
         </div>
     );

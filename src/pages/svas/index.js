@@ -63,8 +63,10 @@ useEffect(() => {
                     <div className="headerContentTitle"><h2>Produtos Digitais</h2></div>
                     <div className="headerContentOptions"><OptionsUser /></div>
                 </div>
+                <div style={{height: '100px'}}>
 
                 <StyledCard2 svas={svaList}/>
+                </div>
 
 
             </div>

@@ -100,12 +100,12 @@ const onPieEnter = useCallback(
     return(
         <div className="chartContainer">
             <h3>Produtos Digitais</h3>
-    <PieChart width={400} height={400}>
+    <PieChart width={400} height={300}>
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
         data={countSva}
-        cx={150}
+        cx={220}
         cy={150}
         innerRadius={60}
         outerRadius={80}
