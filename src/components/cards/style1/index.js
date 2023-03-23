@@ -4,6 +4,8 @@ import IconButton from '@mui/material/IconButton';
 import Alert from '@mui/material/Alert';
 import Collapse from '@mui/material/Collapse';
 import CloseIcon from '@mui/icons-material/Close';
+import SecurityUpdateGoodIcon from '@mui/icons-material/SecurityUpdateGood';
+import PhonelinkEraseIcon from '@mui/icons-material/PhonelinkErase';
 import axios from 'axios';
 import './index.css';
 
@@ -121,15 +123,14 @@ const handleModal = () => {
                             <th className="StyledStatus">
                                 {sva.status === "ACTIVE"
                                 ?
-                                <button style={{ width: '50px'}} 
-                                onClick={(() => {
+                                <button onClick={(() => {
                                         setStatus('DEACTIVATE');
                                         setSvaName(sva.name);
                                         setSvaId(sva.idsva);
                                         handleModal();
                                 })} 
                                 
-                                >AQ</button>
+                                ><PhonelinkEraseIcon /></button>
                                 :
                                 '' 
                                 }

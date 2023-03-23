@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Loader from '../../components/loader';
 import api from '../../service/axios.js';
-import ImgBgd from '../../assets/image_background.png';
-import Video from '../../video/videoplayback.mp4'
 import axios from 'axios';
 import './index.css';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -18,6 +16,9 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Alert from '@mui/material/Alert';
 import Collapse from '@mui/material/Collapse';
 import CloseIcon from '@mui/icons-material/Close';
+import ImgBgd from '../../assets/image_background.png';
+import Video from '../../video/videoplayback.mp4'
+import YcImage from '../../assets/bgd6.jpeg';
 
 const Login = () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -109,12 +110,17 @@ const Login = () => {
                 bannerid
             }).then(function (response) {
                 if(response.data.status === 1) {
-                        sessionStorage.setItem("token", response.data.response.token);
-                        sessionStorage.setItem("profile", response.data.response.profileName);
-                        //console.log(response.data.response.idcompany);
-                        //console.log("os provedor", provedorList.filter(e => e.id == response.data.response.idcompany));
-                       // if(response.data.response.idcompany) 
-                        //window.location.href = '/dashboard';
+                    sessionStorage.setItem("token", response.data.response.token);
+                    sessionStorage.setItem("profile", response.data.response.profileName);
+
+                    apis.get('/parceiros', {
+                    }).then((result) => {
+                        sessionStorage.setItem('idCompany', result.data.response.filter(e => e.id == response.data.response.idcompany).map(e => e.id).reduce(e => e))
+                        sessionStorage.setItem('companyImg', result.data.response.filter(e => e.id == response.data.response.idcompany).map(e => e.image).reduce(e => e))
+                    }).catch((error) => {
+                        console.log(error);
+                    })
+                    window.location.href = '/dashboard';
                 } else {
                     window.location.href = '/';
                 }
@@ -168,7 +174,8 @@ const Login = () => {
                 {vendorExists === false
                     ?
                         <div className="configPage">
-                            <h1 className="heading">Selecione seu Provedor</h1>
+                            <h1 className="heading">SELECIONE SEU</h1>
+                            <h1 className="heading2">PROVEDOR</h1>
 
                             <div className="configGrid">
                                 {provedorList.map((pvd, idx) => {
@@ -186,13 +193,17 @@ const Login = () => {
 
 
                             </div>
+
                         </div>
                     :
                     <div className="configLogin">
                         <div className="configLoginBackground">
+                            <img src={YcImage}></img>
+                            
+                            {/* 
                             <video autoPlay muted>
                                 <source src={Video} type="video/mp4" loop />
-                            </video>
+                            </video>*/}
                         <div className="backgroundColor"></div>
                         </div>
 

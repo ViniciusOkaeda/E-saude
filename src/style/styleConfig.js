@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import axios from 'axios';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 import './index.css';
 
@@ -193,7 +194,7 @@ const StyleConfig = () => {
 
         <div ref={dropDownRef}>
             <div className="configOpenOptions">
-                <button onClick={handleOpenDropDown}> </button>
+                <button onClick={handleOpenDropDown}><SettingsIcon className="configIcon"/> </button>
             </div>
             <div className={`containerStyle ${isActive ? "active" : "inactive"}`}>
                 
@@ -286,14 +287,6 @@ const StyleConfig = () => {
                     }
                 </div>
 
-
-            
-                <div className="headerStyled">
-                    <h2>
-                        Layout Menu
-                    </h2>
-                </div>
-                <div className="contentStyed"> </div>
             </div>
         </div>
     );

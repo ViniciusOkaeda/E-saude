@@ -2,12 +2,13 @@
     width: 95%;
     height: 100%;
     max-height: 550px;
+    max-width: 1000px;
     margin: 20px;
     padding: 20px;
     background-color: var(--container-color);
     border-radius: 5px;
     box-shadow: 2px 2px 2px var(--shadow-color);
-    overflow-y: auto;
+    overflow-x: auto;
 }
 
 .StyledBorder{
@@ -61,6 +62,15 @@
 
 .StyledStatus {
     width: 25%;
+}
+
+.StyledStatus button {
+    width: 50px;
+    color: rgb(206, 9, 9);
+    background-color: rgba(0, 0, 0, 0);
+}
+.StyledStatus button:hover {
+    background-color: rgba(196, 196, 196, 0.5);
 }
 
 .StyledStatusColor {
@@ -170,6 +180,16 @@ width: 100%;
     }
     
 }
+@media only screen and (max-width: 900px) {
+    .containerStyledCard1{
+        overflow-x: initial;
+        max-height: 2000px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    
+}
 
 @media only screen and (max-width: 700px) {
     .ContentStyled{
@@ -189,9 +209,8 @@ width: 100%;
     }
 
     .containerStyledCard1 {
-        max-height: 1550px;
-       padding-bottom: 200px;
        margin-bottom: 200px;
+       overflow-x: auto;
     }
 }
 

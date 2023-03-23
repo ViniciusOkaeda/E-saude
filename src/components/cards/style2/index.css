@@ -3,6 +3,7 @@
     height: 100%;
     margin: auto auto 100px auto;
     display: grid;
+    max-width: 1000px;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 
@@ -10,6 +11,8 @@
 
 .ContentStyled2 {
     width: 100%;
+    max-width: 500px;
+
     height: 180px;
     background-color: var(--container-color);
     border-radius: 5px;
@@ -96,8 +99,8 @@
 
 .modalActiveSvaContainer {
     width: 35%;
-    height: 180px;
-    background-color: #fff;
+    height: 220px;
+    background-color: var(--container-color);
     box-shadow: 2px 2px 2px var(--shadow-color);
     top: 40%;
     position: absolute;

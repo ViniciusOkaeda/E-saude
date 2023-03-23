@@ -16,6 +16,9 @@
     margin: auto auto auto 0px;
     background-color: rgb(255, 0, 98);
 }
+.optionsContent2 button:hover {
+    background-color: rgb(66, 1, 26);
+}
 
 
 .options.active {
@@ -23,6 +26,8 @@
     opacity: 1;
     transform: translateY(0);
     transition: 500ms ease;
+    z-index: 10;
+    position: absolute;
 }
 
 .options.inactive {
@@ -35,7 +40,7 @@
 .options button {
     width: 100%;
     border-radius: 50%;
-    background-color: #2b2b2b; 
+    background-color: var(--font-color); 
 }
 
 .options ul{
@@ -45,14 +50,14 @@
     padding: 10px;
     margin-left: -80px;
     box-shadow: 2px 2px 2px var(--shadow-color);
-    background-color: #fff;
+    background-color: var(--container-color);
     border-radius: 5px;
 }
 
 .options li{
     display: flex;
     cursor: pointer;
-    color: #444444;
+    color: var(--font-color);
     margin: auto;
 }
 .options li p{

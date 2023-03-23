@@ -1,7 +1,5 @@
 .renderSelect {
-    background-color: var(--theme-color);
-    width: 100%;
-    height: 100%;
+  background-image: linear-gradient(to top, #eceded, #f1f1f2, #f6f6f6, #fafafb, #ffffff);    height: 100%;
     min-height: 800px;
 }
 
@@ -28,23 +26,33 @@
 }
 
 .heading{
-    font-size: 1.9rem;
-    margin: 0.6em auto 1.4em auto;
+    font-size: 1.6rem;
+    margin: 0.6em auto 0px auto;
     max-width: 1300px;
-    border-bottom: 1px solid black;
-    width: 90%;
+    width: 70%;
     color: var(--font-color);
-    text-align: left;
+    text-align: center;
     font-weight: 500;
   }
 
+.heading2{
+    font-size: 1.9rem;
+    margin: 0px auto 1.4em auto;
+    max-width: 1300px;
+    border-bottom: 1px solid #d4d4d4;
+    width: 60%;
+    color: var(--font-color);
+    text-align: center;
+    font-weight: bolder;
+  }
+
   .configGrid {
-    width: 90%;
+    width: 60%;
     height: auto;
     max-width: 1300px;
     padding: 10px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     margin: auto;
   }
@@ -74,7 +82,7 @@
   }
   
   .configGrid > *:hover { 
-    opacity: 1; transform: scale(1.2); 
+    opacity: 1; transform: scale(1.3); 
     transition-delay: 0ms, 0ms; 
   }
 
@@ -91,6 +99,11 @@
     max-width: 150px;
     max-height: auto;
     object-fit: contain;
+    filter: grayscale();
+  }
+
+  .gridItem img:hover {
+    filter: grayscale(0%);
   }
 
   .configLogin {
@@ -113,9 +126,17 @@
     height: 100%;
     object-fit: cover;
   }
+  .configLoginBackground img {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    object-fit: cover;
+  }
 
   .backgroundColor {
-    background-color: rgba(26, 26, 26, 0.8);
+    background-color: rgba(26, 26, 26, 0.6);
     position: fixed;
     z-index: -0;
     width: 100%;
@@ -141,7 +162,7 @@
   .loginContent{
     width: 50%;
     height: 100%;
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(71, 81, 83);
     border-radius: 15px 0px 0px 15px;
 
   }
@@ -226,7 +247,7 @@
     content: " ";
     width: 50%;
     height: 100%;
-    background-image: linear-gradient(to right, rgb(66, 66, 66), rgba(0, 0, 0, 0.7));
+    background-image: linear-gradient(to right, rgb(71, 81, 83), rgba(0, 0, 0, 0.7));
     opacity: 1;
     position: absolute;
     border-radius: 0px 15px 15px 0px;
@@ -261,7 +282,7 @@
 @media only screen and (max-width: 700px) {
     .configGrid {
         grid-template-columns: repeat(2, 1fr);
-
+        width: 80%;
       }
 
       .loginContent {
