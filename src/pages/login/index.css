@@ -1,6 +1,7 @@
 .renderSelect {
   background-image: linear-gradient(to top, #eceded, #f1f1f2, #f6f6f6, #fafafb, #ffffff);    height: 100%;
     min-height: 800px;
+    overflow: auto;
 }
 
 .renderSelect.active {
@@ -19,7 +20,6 @@
     width: 100%;
     height: 100%;
     margin: auto;
-    overflow: auto;
     padding-top: 40px;
     padding-bottom: 40px;
     max-height: 700px;

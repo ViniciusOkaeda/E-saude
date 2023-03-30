@@ -101,7 +101,6 @@ const StyledCard2 = (svas) => {
     const [day, setDay] = useState('');
     const [month, setMonth] = useState('');
     const [year, setYear] = useState('');
-    console.log(svas)
 
 
 
@@ -112,7 +111,6 @@ const StyledCard2 = (svas) => {
         });
       };
 
-    console.log(parseInt(specificSva.idsva))
 
     const [error, setError] = React.useState('');
     const [loading, setLoading] = React.useState(false);
@@ -232,7 +230,6 @@ const handleModal2 = () => {
     return(
         <div className="StyledContainer2">
             {svas.svas.filter(e => e.status === "INACTIVE").map((sva, idx) => {
-                //console.log("meu svsadasdasa", sva)
                 return(
                     <div key={idx} className="ContentStyled2">
                         <div className="ContainerStyled2">
@@ -247,7 +244,6 @@ const handleModal2 = () => {
                                 <h2>{sva.name}</h2>
                                 <button onClick={(() => {
                                     if(sva.type === 'EXTERNO'){
-                                        console.log("aqui está o EXTID", sva.extid)
                                         if(sva.extid === 'NOVO'){
                                             setSpecificSva(sva);
                                             handleModal2(); 

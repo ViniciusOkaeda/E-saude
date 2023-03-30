@@ -7,7 +7,6 @@ import StyledCard2 from '../../components/cards/style2';
 import axios from 'axios';
 
 const  Sva = () => {
-//https://lite.codedthemes.com/datta-able/react/default/dashboard/default#!
 
 const [ svaList, setSvaList] = useState ([{
     idsva: '',
@@ -17,9 +16,6 @@ const [ svaList, setSvaList] = useState ([{
     extid: '',
     status: ''
 }])
-
-const [ activeS, setActiveS ] = useState(null);
-const [ inactiveS, setInactiveS ] = useState(null);
 
 const apis = axios.create({
     baseURL: 'https://ativacao.youcast.tv.br/api/v1/internal/',
@@ -47,8 +43,6 @@ useEffect(() => {
             console.log(error);
         })
     })();
-
-    //console.log("o sva", svaList);
 
 },[]);
 

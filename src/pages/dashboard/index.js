@@ -8,7 +8,6 @@ import PieChartZ from '../../components/charts/index.tsx';
 import axios from 'axios';
 
 const Dashboard = () => {
-//https://lite.codedthemes.com/datta-able/react/default/dashboard/default#!
 
 const [ svaList, setSvaList] = useState ([{
     idsva: '',
@@ -17,8 +16,6 @@ const [ svaList, setSvaList] = useState ([{
     status: ''
 }])
 
-const [ activeS, setActiveS ] = useState(null);
-const [ inactiveS, setInactiveS ] = useState(null);
 
 const apis = axios.create({
     baseURL: 'https://ativacao.youcast.tv.br/api/v1/internal/',
@@ -42,14 +39,10 @@ useEffect(() => {
             }
         }).then((result) => {
             setSvaList(result.data.response)
-            setActiveS(result.data.response.filter(e => e.status === "ACTIVE").map(e => e).length);
-            setInactiveS(result.data.response.filter(e => e.status === "INACTIVE").map(e => e).length);
         }).catch((error) => {
             console.log(error);
         })
     })();
-
-    //console.log("o sva", svaList);
 
 },[]);
 
@@ -63,12 +56,11 @@ useEffect(() => {
             <div className="container">
 
                 <div className="headerContent">
-                    <div className="headerContentTitle"><h2>Dashboard</h2></div>
+                    <div className="headerContentTitle"><h2>Produto Digital</h2></div>
                     <div className="headerContentOptions"><OptionsUser /></div>
                 </div>
 
                 <div className="contentDisplay">
-                    <PieChartZ svasList={svaList} />
                     <StyledCard1 svas={svaList}/>
                 </div>
 

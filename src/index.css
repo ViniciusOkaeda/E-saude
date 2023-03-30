@@ -61,7 +61,6 @@
 body{
   background-image: var(--theme-color);
   color: var(--font-color);
-  overflow: auto;
   padding-bottom: 20px;
   height: auto;
 }
@@ -127,7 +126,7 @@ button:hover {
 }
 
 .returnInfoButtons {
-  position: absolute;
+  position: fixed;
   top: 6%;
   right: 0;
   width: 30%;

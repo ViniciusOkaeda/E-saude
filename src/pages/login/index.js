@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import Loader from '../../components/loader';
-import api from '../../service/axios.js';
 import axios from 'axios';
 import './index.css';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -17,7 +16,6 @@ import Alert from '@mui/material/Alert';
 import Collapse from '@mui/material/Collapse';
 import CloseIcon from '@mui/icons-material/Close';
 import ImgBgd from '../../assets/image_background.png';
-import Video from '../../video/videoplayback.mp4'
 import YcImage from '../../assets/bgd6.jpeg';
 
 const Login = () => {
@@ -88,8 +86,6 @@ const Login = () => {
             const result = await apis.get('/parceiros', {
             }).then((result) => {
                 if(companyName == null ) {
-                    //console.log("o result", result.data.response)
-                    console.log("o result", result.data.response.filter(e => e.name === 'Weclix').map(e => e.name).reduce(e => e))
                     setProvedorList(result.data.response)
                 }else if(companyName !== null) {
                     setProvedorList(result.data.response.filter(e => e.name === companyName))
@@ -120,7 +116,7 @@ const Login = () => {
                     }).catch((error) => {
                         console.log(error);
                     })
-                    window.location.href = '/dashboard';
+                    window.location.href = '/produtodigital';
                 } else {
                     window.location.href = '/';
                 }
@@ -145,7 +141,7 @@ const Login = () => {
                     setLoading(false);
                     sessionStorage.setItem("token", response.data.response.token);
                     sessionStorage.setItem("profile", response.data.response.profileName);
-                    window.location.href = '/dashboard';
+                    window.location.href = '/produtodigital';
                     setSucessState(true);
                 }
                 if(response.data.status === 11) {
@@ -186,7 +182,7 @@ const Login = () => {
                                             sessionStorage.setItem("idCompany", pvd.id);
                                             sessionStorage.setItem("companyImg", pvd.image);
                                             })}>
-                                            <img src={pvd.image} />
+                                            <img src={pvd.image} alt="provedor_image"/>
                                         </div>
                                     )
                                 })}
@@ -198,7 +194,7 @@ const Login = () => {
                     :
                     <div className="configLogin">
                         <div className="configLoginBackground">
-                            <img src={YcImage}></img>
+                            <img src={YcImage} alt="background_image"></img>
                             
                             {/* 
                             <video autoPlay muted>
@@ -213,7 +209,7 @@ const Login = () => {
                                     <div className="contentLoginReturn" >
                                         <button onClick={handleOpenSelectVendor}><ArrowBackIcon style={{ marginTop: 3}}/></button>
                                     </div>
-                                    <img src={sessionStorage.getItem('companyImg')}></img>
+                                    <img src={sessionStorage.getItem('companyImg')} alt="company_image"></img>
                                 </div>
 
                                 <div className="loginContent2">

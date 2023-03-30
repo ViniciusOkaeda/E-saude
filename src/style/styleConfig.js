@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import axios from 'axios';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 import './index.css';
@@ -50,7 +49,6 @@ const StyleConfig = () => {
     
     const handleOpenDropDown = () => setIsActive(!isActive);
 
-    console.log("o config", configOptions);
 
       useEffect (() => {
 
@@ -62,9 +60,8 @@ const StyleConfig = () => {
             res.json()
             ).then(resp => {
                 setConfigOptions(resp.paletteOptions.map(e => e))
-               // console.log("o resp", resp.paletteOptions.map(e => e));
             }).catch((error) => {
-
+                console.log(error)
             });
 
             const currentThemeColor = localStorage.getItem('themeColor');

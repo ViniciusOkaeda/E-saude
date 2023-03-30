@@ -42,14 +42,7 @@ const Menu = () => {
                     <a href='/dashboard'>
                         <div className="containerMenuLinks">
                             <div className="containerMenuIcon"><HomeIcon className="menuIcon" sx={{ fontSize: '1.6em'}}/></div>
-                            <div className="containerMenuText"><p>Dashboard</p></div>
-                        </div>
-                    </a>
-
-                    <a href='/sva'>
-                        <div className="containerMenuLinks">
-                            <div className="containerMenuIcon"><QueuePlayNextIcon className="menuIcon" sx={{ fontSize: '1.6em'}}/></div>
-                            <div className="containerMenuText"><p>Produtos Digitais</p></div>
+                            <div className="containerMenuText"><p>Produto Digital</p></div>
                         </div>
                     </a>
 
@@ -64,8 +57,7 @@ const Menu = () => {
                         className={`optionsMobile ${isActive ? "active" : "inactive"}`}
                     >
                         <ul>
-                            <a href="/dashboard?token=3251316"><li><DashboardIcon /><p>Dashboard</p></li></a>
-                            <a href="/sva" ><li><QueuePlayNextIcon /><p>SVA's</p></li></a>
+                            <a href="/dashboard"><li><HomeIcon /><p>Produto Digital</p></li></a>
                         </ul> 
                     </nav>
                 </div>

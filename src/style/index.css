@@ -31,7 +31,7 @@ margin-top: 5px;
     box-shadow: -4px 1px 5px var(--shadow-color);
     background-color: var(--container-color);
     right: 0%;
-    overflow-y: scroll;
+    overflow: auto;
 }
 
 .containerStyle.active {
