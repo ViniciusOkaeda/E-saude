@@ -4,7 +4,6 @@ import Menu from '../../components/menu';
 import StyleConfig from '../../style/styleConfig';
 import OptionsUser from '../../components/optionsUser';
 import StyledCard1 from '../../components/cards/style1';
-import PieChartZ from '../../components/charts/index.tsx';
 import axios from 'axios';
 
 const Dashboard = () => {
