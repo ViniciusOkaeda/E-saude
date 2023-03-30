@@ -89,6 +89,9 @@ const Login = () => {
                     setProvedorList(result.data.response)
                 }else if(companyName !== null) {
                     setProvedorList(result.data.response.filter(e => e.name === companyName))
+                    sessionStorage.setItem("idCompany", result.data.response.filter(e => e.name === companyName).map(e => e.id).reduce(e => e));
+                    sessionStorage.setItem("companyImg", result.data.response.filter(e => e.name === companyName).map(e => e.image).reduce(e => e))
+                    setVendorExists(true);
                 }
             }).catch((error) => {
                 console.log(error);
