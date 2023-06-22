@@ -1,7 +1,8 @@
 .renderSelect {
   background-image: linear-gradient(to top, #eceded, #f1f1f2, #f6f6f6, #fafafb, #ffffff);    height: 100%;
-    min-height: 800px;
-    overflow: auto;
+  height: 100%;
+  min-height: 1920px;
+  padding-bottom: 20px;
 }
 
 .renderSelect.active {
@@ -22,7 +23,7 @@
     margin: auto;
     padding-top: 40px;
     padding-bottom: 40px;
-    max-height: 700px;
+    overflow: auto;
 }
 
 .heading{
@@ -136,7 +137,7 @@
   }
 
   .backgroundColor {
-    background-color: rgba(26, 26, 26, 0.6);
+    background-color: rgba(26, 26, 26, 1);
     position: fixed;
     z-index: -0;
     width: 100%;
@@ -148,7 +149,7 @@
     z-index: 1;
     width: 80%;
     max-width: 1300px;
-    background-color: #222222;
+    background-color: #ffffff;
     box-shadow: 2px 2px 2px rgb(22, 22, 22);
     height: 90%;
     border-radius: 15px;
@@ -156,13 +157,14 @@
     top: 5%;
     margin: auto;
     min-height: 500px;
+    max-height: 800px;
     display: flex;
   }
 
   .loginContent{
     width: 50%;
     height: 100%;
-    background-color: rgb(71, 81, 83);
+    background-color: rgb(255, 255, 255);
     border-radius: 15px 0px 0px 15px;
 
   }
@@ -186,22 +188,22 @@
     color: #fff;
     width: 40px;
     height: 40px;
-    background-color: inherit;
+    background-color: rgb(24, 24, 24);
     border-radius: 10%;
   }
   .contentLoginReturn Button:hover {
     color: #e2e2e2;
-    background-color: var(--bg-effect-color);
+    background-color: rgba(0, 0, 0, 0.8);
   }
 
   .loginContent1 img {
-    height: 50px;
+    height: 100px;
     width: auto;
   }
 
   .loginContent2 {
     width: 80%;
-    margin: 50px auto 10px auto;
+    margin: 30px auto 10px auto;
   }
 
   .loginContent2 h4 {
@@ -211,7 +213,7 @@
     font-size: 0.9rem;
   }
   .loginContent2 h2 {
-    color: #FFFFFF;
+    color: #1D253B;
     font-weight: bold;
     font-size: 1.8rem;
   }
@@ -247,11 +249,26 @@
     content: " ";
     width: 50%;
     height: 100%;
-    background-image: linear-gradient(to right, rgb(71, 81, 83), rgba(0, 0, 0, 0.7));
     opacity: 1;
     position: absolute;
     border-radius: 0px 15px 15px 0px;
 
+}
+
+@media only screen and (min-width: 1800px) {
+  .configPage {
+    max-height: 950px;
+}
+}
+@media only screen and (min-width: 1500px) {
+  .configPage {
+    max-height: 800px;
+}
+}
+@media only screen and (min-width: 1300px) {
+  .configPage {
+    max-height: 700px;
+}
 }
 
 

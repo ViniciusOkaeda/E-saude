@@ -34,6 +34,7 @@ const Menu = () => {
                     <div className="containerMenuLogo">
                         <img src={companyImg}></img>
                     </div>
+                    
                     <div className="containerMenuLine"></div>
 
                     <a href='/dashboard'>

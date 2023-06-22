@@ -37,7 +37,7 @@ function AllRoutes() {
                         </PrivateRoute> 
                     } />    
 
-                  <Route path="*" element={<Navigate to ={checkRoutes ? "/dashboard" : "/"} />} />
+                  <Route path="*" element={<Navigate to ={checkRoutes ? "/produtodigital" : "/"} />} />
 
                 </Routes>
             </BrowserRouter>

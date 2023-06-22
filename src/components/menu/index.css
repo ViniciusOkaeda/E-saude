@@ -30,7 +30,7 @@
 .containerMenuLogo {
     width: 90%;
     height: 30%;
-    min-height: 90px;
+    min-height: 100px;
     max-height: 160px;
     display: var(--menu-display);
     background-color: rgb(255, 255, 255);
@@ -39,7 +39,7 @@
 }
 
 .containerMenuLogo img {
-    height: 80px;
+    height: 120px;
     width: auto;
     max-width: 120px;
     object-fit: contain;

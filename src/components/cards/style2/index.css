@@ -147,6 +147,7 @@
     left: 0%;
     margin: auto;
     position: fixed;
+    z-index: 3;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -167,6 +168,7 @@
 .modalActiveSvaContainer2 {
     width: 50%;
     height: 90%;
+    min-height: 500px;
     background-color: var(--container-color);
     box-shadow: 2px 2px 2px var(--shadow-color);
     top: 5%;

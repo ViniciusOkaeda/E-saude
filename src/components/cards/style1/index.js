@@ -287,7 +287,6 @@ const handleModal3 = () => {
         });
     }
 
-
     async function deactiveTelemedicina() {
         setInfoState(true);
         apis.patch('sva/telemedicina', {
@@ -308,6 +307,7 @@ const handleModal3 = () => {
         })
 
     }
+
     async function deactiveSva() {
         setInfoState(true);
         apis.patch('sva', {
@@ -452,7 +452,7 @@ const handleModal3 = () => {
 
             <div className={`modalActiveSva2 ${modalOpen2 ? "active" : "inactive"}`}>
                 <div className="modalActiveSvaContainer2">
-                <div className="modalActiveSva2Content1">
+                    <div className="modalActiveSva2Content1">
                         <h3><span>{specificSva.name}</span> - Preencha o Formulário</h3>
                     </div>
 

@@ -69,14 +69,14 @@
                 {
                     "menuWidth": "19%",
                     "menuHeight": "100%",
-                    "menuMinHeight": "700px",
+                    "menuMinHeight": "1080px",
                     "menuDisplay": "block",
                     "menuMargin": "auto 1% auto auto"
                 },
                 {
                     "menuWidth": "6%",
                     "menuHeight": "100%",
-                    "menuMinHeight": "700px",
+                    "menuMinHeight": "1080px",
                     "menuDisplay": "none",
                     "menuMargin": "auto 1% auto 0%"
                 },

@@ -15,7 +15,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Alert from '@mui/material/Alert';
 import Collapse from '@mui/material/Collapse';
 import CloseIcon from '@mui/icons-material/Close';
-import ImgBgd from '../../assets/image_background.png';
+import ImgBgd from '../../assets/fundo_mulher.png';
 import YcImage from '../../assets/bgd6.jpeg';
 
 const Login = () => {
@@ -48,11 +48,23 @@ const Login = () => {
     const handleCloseSelectVendor = () => {
         setVendorExists(true);
     };
+    const toggleVisible = () => {
+        window.scrollTo({
+            top: 0, 
+            behavior: 'instant'
+
+          });
+      };
+
     const handleOpenSelectVendor = () => {
         localStorage.clear();
         sessionStorage.clear();
+        
         setVendorExists(false);
+        toggleVisible();
     };
+    window.addEventListener('click', toggleVisible);
+
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -197,16 +209,16 @@ const Login = () => {
                     :
                     <div className="configLogin">
                         <div className="configLoginBackground">
-                            <img src={YcImage} alt="background_image"></img>
+                            {/* <img src={YcImage} alt="background_image"></img>
                             
-                            {/* 
+                            
                             <video autoPlay muted>
                                 <source src={Video} type="video/mp4" loop />
                             </video>*/}
                         <div className="backgroundColor"></div>
                         </div>
 
-                        <div className="configLoginForm">
+                        <div className="configLoginForm" >
                             <div className="loginContent">
                                 <div className="loginContent1">
                                     <div className="contentLoginReturn" >
